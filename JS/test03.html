@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    </head>
+    <body>
+        <h1 id="htxt"> Answer Box</h1>
+
+        <!--버튼(form 태그) 위에서 클릭이 일어났을때, 
+            호출이 약속된 함수를 이벤트 처리기 onclick을 재정의시 
+            원하는 처리 코드 생성 가능-->
+        <input id="btn_show" type ="button" value="h1의 배경색 바꾸기">
+        <input type="button" value="지우기">
+    </body>
+    <script>
+        var btnObj = document.getElementById("htxt");
+        var hObj = document.getElementById("btn_show");
+        btnObj.onclick = function(){
+            hObj.style.backgroundcolor = 'gray';
+        };
+    </script>
+</html>

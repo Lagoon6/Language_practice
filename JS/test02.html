@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <script>
+    
+    //선언적 함수 = 정의문
+    function display(){
+        var i = 10;
+         //class --> 객체(단일 역할) --> 객체,서비스();
+        //document.write('<h1>'+i+'</h1>');
+        //console.log(1);
+        i=i+100;
+
+        var hObj = document.getElementById("htxt");
+        hObj.style.backgroundColor = 'gray';
+        hObj.innerHTML = i;
+    }
+    function clearText(){
+        var hObj = document.getElementById("htxt");	//제거하고자 하는 엘리먼트
+        hObj.innerHTML= "";
+    }
+    //값 = literal
+
+    var changeBgColor= function(){
+        var btnObj = document.getElementById("btn_show");
+        btnObj.style.backgroundColor = 'red';
+    };
+    
+    changeBgColor();
+    </script>
+
+    </head>
+    <body>
+        <h1 id="htxt"> Answer Box</h1>
+
+        <!--버튼(form 태그) 위에서 클릭이 일어났을때, 
+            호출이 약속된 함수를 이벤트 처리기 onclick을 재정의시 
+            원하는 처리 코드 생성 가능-->
+        <input id = "btn_show" type ="button" value="출력하기">
+        <input type ="button" value="지우기">
+    </body>
+    
+</html>

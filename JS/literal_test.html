@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script type="text/javascript">
+            var test = 10 //숫자리터럴
+            var test2 = "Hello" //문자리터럴
+            var test3 = true //논리리터럴
+            var test4 = test //리터럴이 아님
+
+            //function literal
+            var display = function(){
+                document.write("display.....");
+            };
+            //display(); //함수 리터럴이 함수 실행모드로 변경
+            function show(f){
+                f();
+            }
+            //show(display);
+
+            function outer(){
+                var i=100;
+                i = i+200;
+
+                return (function(){
+                    window.alert("return value : function");
+                });
+            }
+
+            var rev = outer();
+            document.write("i="+rev());
+
+        </script>
+        
+    </head>
+    <body>
+
+    </body>
+</html>

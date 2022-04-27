@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+            function outer(x,y){ //인수 x,y는 outer 함수가 실행되는 동안만 유효한 변수
+                var i = 100; //지역변수
+                if(i>0){
+                    return (function(){
+                        document.write('x='+x+',y='+y);
+                    });
+                }else{
+                    return (function(){
+                        document.write('i='+i);
+                }); 
+            }
+        }
+            //---main
+            var result = outer(10,20);
+            result(); //호출 --> 클로저
+            //document.write('결과:' +result);
+            var result2 = outer(100,function(){
+
+            });
+            //function literal, object literal, array literal + library UI/UX(jQuery) + 실전예제
+            //var, let --> HTML DOM 이용
+        </script>
+    </head>
+    <body>
+    </body>
+</html>
