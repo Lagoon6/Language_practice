@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+            //function addNum(x,y=0){
+                //x=10, y=undefined => x+y = NaN  => addNum(x,y=0) , addNum(10)
+               // return (x+y);
+            //}
+            //function addNum(x1,x2,x3,x4,x5){
+                //document.write(".....")
+            //} //똑같은 함수면 마지막 import한것만 정의됨
+            //배열 리터럴
+            var list= [10,20,30,40,50];
+            //객체 리터럴 = JSON
+            var obj= {
+                x:10,
+                y:20,
+                display:function(){
+                }
+            };
+            //obj.x
+            function addNum(){
+                for(var i=0; i<arguments.length; i++){
+                    document.write(arguments[i]+",");
+                }
+                //for(Var idx in arguments){ document.write(arguments[idx]+",")}
+                return 0;
+            }
+            var result= addNum(10,20,30,40,50,60); //addBum(list)
+            document.write(result);
+        </script>
+    </head>
+    <body>
+
+    </body>
+</html>

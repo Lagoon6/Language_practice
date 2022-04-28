@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+            //객체 리터럴 = Object Literal = JSON
+            //클래스 정의문 없이 인스턴슨 생성
+            //클래스가 갖는 장점을 일절 사용할 수 없다.
+            var arr = [10,20,"Hello",function(){}]; //배열
+            var player = {
+                x:10,  //instance
+                y:10,
+                size:30,
+                makePosition:function(){
+                    this.x = Math.floor(Math.random()* 800); 
+                    this.y = Math.floor(Math.random()* 600); 
+                },
+                display:function(){
+                    this.makePosition();
+                    document.write("x="+this.x+",y="+this.y); //인스턴스 변수 참조
+                },
+                moveLeft:function(){
+                },
+                moveRight:function(){
+                }
+            }; //객체
+            //----main
+            player.display();
+        </script>
+    </head>
+    <body>
+    </body>
+</html>

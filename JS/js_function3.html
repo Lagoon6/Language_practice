@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+            let display = function(){
+                document.write('<h1>display...</h1>');
+            };
+            //ECMAScript6
+            let show = (e) => {
+                console.log('e: '+e)
+                document.write('<h1>show....</h1>');
+            };
+            
+            //DOM 완성될떄 수행하도록 약속된 이벤트 처리기
+            window.onload = function() {
+            //--main
+            let btn_d=window.document.getElementById("btn_dis");
+            btn_d.onclick=function(e){
+                display();
+            };
+            let btn_s=window.document.getElementById("btn_sh");
+            btn_s.addEventListener('click',show, false);
+            };
+        </script>
+    </head>
+    <body>
+        <div>
+        <input id="btn_dis" type="button" value="display" >
+        <input id="btn_sh" type="button" value="show" >
+        </div>
+    </body>
+</html>
