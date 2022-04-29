@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+            window.onload= function(){
+                let btn_data = document.getElementById("btn_txt_load");
+                let p_view = document.getElementById("view");
+
+                btn_data.onclick = function(){
+                    var req= new XMLHttpRequest(); //http 요청, 응답제어
+                   // {id:"",pass:""}
+                    req.addEventListener('load', function() {
+                        p_view.innerHTML = req.responseText;
+                    }, false);
+                    req.open("GET","data.txt");
+                    req.send(null);
+            };
+        };
+        </script>
+    </head>
+    <body>
+        <input id="btn_txt_load" type="button" value="Load data.txt">
+        <p id="view" style="border:solid 1px red"></p>
+    </body>
+    
+</html>

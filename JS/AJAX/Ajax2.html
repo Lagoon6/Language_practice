@@ -1,0 +1,19 @@
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <!--script src="https://naver.com/jsonp.js"-->
+        <script>
+            function show(data){
+                document.write("name:"+data.name);
+                document.write(",price:"+data.price);
+            }
+
+            window.onload = function(){
+                var url = "jsonp.js" //외부서버
+                var script = document.createElement("script");
+                script.setAttribute("src",url);
+                document.getElementsByTagName("head")[0].appendChild(script);
+            };
+        </script>
+    </head>
+</html>

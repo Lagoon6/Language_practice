@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>animation</title>
+        <script>
+        // 생성자 함수 패턴을 이용한 객체생성 ( ~ ES5 이전) // ES6 이후 Class
+        //선언적 함수 선언 - window.Ball() --> Ball()   
+        function Ball(x,y,r,vx,vy,color){  //생성자
+            this.x = x; //x축
+            this.y = y; //y축
+            this.r = r; //Radius
+            this.vx = vx; //Velocity
+            this.vy = vy;
+            this.color = color;
+        };
+        Ball.prototype = {
+            setVelocityAsRandom: function(vmin,vmax){
+                var v = vmin+ Math.random()*(vmax-vmin);
+                var t = 2*Math.PI*Math.random();
+                this.vx = v*Math.cos(t);
+                this.vy = v*Math.sin(t);
+                return this;
+            },
+            setColorAsRandom: function(lmin,lmax){
+                var R = Math.floor(lmin + Math.random()*(lmax-lmin));
+                var G = Math.floor(lmin + Math.random()*(lmax-lmin));
+                var B = Math.floor(lmin + Math.random()*(lmax-lmin));
+                this.color = 'rgb('+R+','+G+','+B+')';
+                return this;
+            },
+            draw: function(ctx){
+                ctx.fillStyle = this.color;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.r,0, 2*Math.PI, true);
+                ctx.fill();
+                return this;
+            },
+            move:function(){
+                this.x += this.vx;
+                this.y += this.vy;
+                return this;
+
+            },
+            collisionWall:function(wall){
+                return this;
+            }
+        }
+
+        //---main
+        window.onload = function(){
+            var canObj = document.getElementById("mycanvas");
+            var ctx = canObj.getContext('2d');
+
+            const NBALL = 200; //상수변수 
+            const R = 5;
+            var wall = {
+                left:0,
+                right:canObj.width,
+                top:0,
+                bottom:canObj.height
+            };   
+            var balls =  [];
+
+            for(var i=0; i<NBALL; i++){
+                balls[i] = new Ball(wall.right/2,wall.bottom/2,R);
+                balls[i].setVelocityAsRandom(2,7).setColorAsRandom(50,255);
+                //balls[i].draw(ctx);
+            }
+            setInterval(drawFrame,33); //time == 33ms
+            
+            function drawFrame(){
+                ctx.fillStyle = 'rgb(0,0,0)';
+                ctx.fillRect(0,0,canObj.width,canObj.height);
+                for(i=0; i<balls.length; i++){
+                    balls[i].move().draw(ctx);
+                }
+
+
+            }
+
+        };
+
+        </script>
+    </head>
+    <body>
+        <canvas id="mycanvas" width="640" hegith="480"></canvas>
+    </body>
+</html>
